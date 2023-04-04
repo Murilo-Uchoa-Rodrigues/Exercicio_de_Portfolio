@@ -2,16 +2,41 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+p {
+    font-family: 'Open Sans' sans-serif;
 }
 
 @media screen and (min-width: 320px) {
-    .jl-page-wrapper {
+
+    .jl-page-wrapper,
+    .jl-preloader {
         width: 100%;
         height: 100vh;
         display: block;
         background-color: #1c1c1c;
         border: 30px solid #000;
     }
+
+    .jl-preloader {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+        z-index: 1000;
+        position: fixed;
+        top: 0;
+        left: 0;
+    }
+
+    .jl-preloader-inner {
+        margin-top: -45px;
+    }
+
 
     .jl-topbar {
         width: 100%;
@@ -41,6 +66,88 @@
 
     .jl-menu {
         display: none;
+    }
+
+    .jl-btn-contact {
+        width: 45px;
+        height: 45px;
+        display: block;
+        background-color: #2ccb69;
+        background-image: url('../Image/icon-contact-close.svg');
+        background-repeat: no-repeat;
+        position: fixed;
+        bottom: 45px;
+        right: 45px;
+        border-radius: 50%;
+        z-index: 200;
+        transition: all 0.2s ease-out;
+        border: none;
+        cursor: pointer;
+    }
+
+
+    .jl-contact-info {
+        width: 245px;
+        height: 165px;
+        padding: 25px;
+        position: fixed;
+        bottom: 115px;
+        right: 65px;
+        z-index: 200;
+        display: none;
+    }
+
+    .jl-contact-info-inner {
+        display: table;
+        width: 100%;
+        float: right;
+    }
+
+    .jl-contact-info-inner p {
+        font-size: 18px;
+        line-height: 24px;
+    }
+
+
+    .jl-social-links {
+        width: 100%;
+        height: 45px;
+        display: block;
+        position: relative;
+        left: -12px;
+        margin-top: 7px;
+    }
+
+    .jl-social {
+        width: 45px;
+        height: 45px;
+        display: inline-block;
+    }
+
+    .jl-social>img {
+        width: 20px;
+        height: auto;
+        display: block;
+        margin: 13px auto 0;
+    }
+
+    .jl-corner {
+        width: 25px;
+        height: 25px;
+        display: block;
+        float: right;
+        display: relative;
+    }
+
+    .jl-corner:after {
+        content: '';
+        width: 25px;
+        height: 25px;
+        display: block;
+        position: absolute;
+        bottom: -23px;
+        right: -0.5px;
+        background: transparent url('../Image/corner.svg') no-repeat;
     }
 }
 
@@ -81,7 +188,7 @@
 
     .jl-menu a::before {
         content: '';
-        width: 0%;
+        width: 100%;
         height: 4px;
         background-color: #2ccb69;
         display: block;
@@ -89,10 +196,12 @@
         bottom: -6px;
         left: 0;
         transition: all 0.2s ease-out;
+        transform: scale(0, 1);
+        transform-origin: center left;
     }
 
     .jl-menu a:hover::before {
-        width: 100%;
+        transform: scale(1, 1);
     }
 }
 
@@ -101,3 +210,103 @@
 @media screen and (min-width: 1364px) {}
 
 @media screen and (min-width: 1600px) {}
+
+
+/* Classes ultilitárias */
+
+.jl-title {
+    font-family: 'Abril Fatface', serif;
+    font-weight: normal;
+}
+
+
+.jl-text-green {
+    color: #2ccb69;
+}
+
+.jl-text-dark {
+    color: #4d4c4c;
+}
+
+.jl-text-ligth {
+    color: #bcbcbc;
+}
+
+.jl-text-black {
+    color: #000;
+}
+
+.jl-bg-green {
+    background-color: #2ccb69;
+}
+
+.jl-bg-dark {
+    background-color: #4d4c4c;
+}
+
+.jl-bg-ligth {
+    background-color: #bcbcbc;
+}
+
+.jl-bg-black {
+    background-color: #000;
+}
+
+.jl-mar-15 {
+    margin: 15px;
+}
+
+.jl-mar-top-15 {
+    margin-top: 15px;
+}
+
+
+.jl-mar-rigth-15 {
+    margin-right: 15px;
+}
+
+
+.jl-mar-bottom-15 {
+    margin-bottom: 15px;
+}
+
+
+.jl-mar-left-15 {
+    margin-left: 15px;
+}
+
+.jl-pad-15 {
+    padding: 15px;
+}
+
+.jl-pad-top-15 {
+    padding-top: 15px;
+}
+
+
+.jl-pad-rigth-15 {
+    padding-right: 15px;
+}
+
+
+.jl-pad-bottom-15 {
+    padding-bottom: 15px;
+}
+
+
+.jl-pad-left-15 {
+    padding-left: 15px;
+}
+
+
+
+/* Classes de Comportamento */
+
+.jl-is-open {
+    display: block;
+
+}
+
+.jl-change-icon {
+    background-position-y: -45px;
+}
